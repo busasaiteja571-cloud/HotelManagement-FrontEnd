@@ -1,0 +1,122 @@
+/* Full page centering */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f3f4f6;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Login card */
+.login-container {
+  max-width: 420px;
+  width: 100%;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Heading */
+h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #1a1a1a;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+label {
+  margin-bottom: 8px;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Inputs */
+input {
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f9f9f9;
+  transition: all 0.2s ease;
+}
+
+/* Focus */
+input:focus {
+  border-color: #4f46e5;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* Error text */
+.error-text {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* Alert */
+.alert {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.alert-danger {
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+}
+
+/* Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #4338ca;
+}
+
+button[type="submit"]:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+  .login-container {
+    padding: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}

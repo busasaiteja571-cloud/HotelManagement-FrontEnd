@@ -1,0 +1,131 @@
+<div class="page">
+
+  <!-- BACKGROUND OVERLAY -->
+
+  <div class="overlay"></div>
+
+  <!-- LOGIN CARD -->
+
+  <div class="login-card">
+
+    <!-- HOTEL LOGO -->
+
+    <div class="logo-section">
+
+      <div class="logo-circle">
+        🏨
+      </div>
+
+      <h1>
+        Grand Palace Hotel
+      </h1>
+
+      <p>
+        Hotel Management System
+      </p>
+
+    </div>
+
+    <!-- LOGIN FORM -->
+
+    <form
+      #loginForm="ngForm"
+      (ngSubmit)="loginForm.form.valid && onLogin()"
+      novalidate
+    >
+
+      <!-- USERNAME -->
+
+      <div class="input-box">
+
+        <label>
+          Username
+        </label>
+
+        <div class="input-wrapper">
+
+          <span class="icon">
+            👤
+          </span>
+
+          <input
+            type="text"
+            id="username"
+            name="username"
+            [(ngModel)]="credentials.username"
+            #usernameInput="ngModel"
+            required
+            placeholder="Enter username"
+          />
+
+        </div>
+
+      </div>
+
+      <!-- PASSWORD -->
+
+      <div class="input-box">
+
+        <label>
+          Password
+        </label>
+
+        <div class="input-wrapper">
+
+          <span class="icon">
+            🔒
+          </span>
+
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="credentials.password"
+            #passwordInput="ngModel"
+            required
+            minlength="6"
+            placeholder="Enter password"
+          />
+
+        </div>
+
+      </div>
+
+      <!-- ERROR MESSAGE -->
+
+      @if (errorMessage) {
+
+        <div class="error-box">
+
+          {{ errorMessage }}
+
+        </div>
+      }
+
+      <!-- LOGIN BUTTON -->
+
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid || isLoading"
+      >
+
+        @if (isLoading) {
+
+          <span>
+            Authenticating...
+          </span>
+
+        } @else {
+
+          <span>
+            Sign In
+          </span>
+        }
+
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
