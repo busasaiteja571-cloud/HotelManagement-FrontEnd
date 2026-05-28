@@ -1,17 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { LoginCredentials,AuthResponse } from '../core/models/auth';
+import { Router } from '@angular/router';
+
+import {
+  LoginCredentials,
+  AuthResponse
+} from '../core/models/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
 
-  // Modern Angular dependency injection
+  // Dependency Injection
   private http = inject(HttpClient);
 
-  // Backend API URL
+  // ADD THIS
+  private router = inject(Router);
+
+  // Backend API
   private readonly apiUrl =
     'http://localhost:8080/api/auth';
 
@@ -29,19 +37,19 @@ export class AuthService {
 
           if (response?.token) {
 
-            // Store JWT token
+            // Store JWT Token
             localStorage.setItem(
               'auth_token',
               response.token
             );
 
-            // Store user role
+            // Store Role
             localStorage.setItem(
               'user_role',
               response.role
             );
 
-            // Store username
+            // Store Username
             localStorage.setItem(
               'username',
               response.username
@@ -53,9 +61,15 @@ export class AuthService {
 
   logout(): void {
 
+    // Remove auth data
     localStorage.removeItem('auth_token');
+
     localStorage.removeItem('user_role');
+
     localStorage.removeItem('username');
+
+    // Redirect to login
+    this.router.navigate(['/login']);
   }
 
   isLoggedIn(): boolean {

@@ -5,6 +5,8 @@ import { AdminDashboard } from './features/admin/admin-dashboard/admin-dashboard
 import { ReceptionDashboard } from './features/reception/reception-dashboard/reception-dashboard';
 import { StaffDashboard } from './features/staff/staff-dashboard/staff-dashboard';
 import { CustomerDashboard } from './features/customer/customer-dashboard/customer-dashboard';
+import { authGuard } from './core/guards/auth-guard';
+import { roleGuard } from './core/guards/role-guard';
 
 export const routes: Routes = [
 
@@ -21,22 +23,38 @@ export const routes: Routes = [
 
   {
     path: 'admin',
-    component: AdminDashboard
+    component: AdminDashboard,
+    canActivate : [authGuard,roleGuard],
+    data : {
+        roles : ['ADMIN'],
+    }
   },
 
   {
     path: 'reception',
-    component: ReceptionDashboard
+    component: ReceptionDashboard,
+    canActivate : [authGuard,roleGuard],
+    data : {
+        roles : ['RECEPTION'],
+    }
   },
 
   {
     path: 'staff',
-    component: StaffDashboard
+    component: StaffDashboard,
+    canActivate : [authGuard,roleGuard],
+    data : {
+        roles : ['STAFF'],
+    },
   },
 
   {
     path: 'customer',
-    component: CustomerDashboard
+    component: CustomerDashboard,
+    canActivate : [authGuard,roleGuard],
+    data : {
+        roles : ['CUSTOMER'],
+    }
   },
 
   {
